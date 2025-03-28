@@ -8,7 +8,7 @@ This repository contains the cleaned and processed Titanic dataset along with th
 ---
 
 ## Files in This Repository
-- `Anurag Anand Final Task Script.py` – Python script for data cleaning, filtering, and processing.
+- `final_task_script.py` – Python script for data cleaning, filtering, and processing.
 - `tested.csv` – Original Titanic dataset (input).
 - `final_titanic_dataset.csv` – Cleaned dataset (output).
 
