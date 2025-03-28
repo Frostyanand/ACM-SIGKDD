@@ -48,10 +48,7 @@ The script follows a structured approach:
 
 2. **Steps**:  
    - Update the CSV path in the script if needed (line: `file_path = ...`).  
-   - Run:  
-     ```bash
-     python "Anurag Anand Final Task Script.py"
-     ```
+   - Run the task script
    - The cleaned dataset will save to your **current working directory** (or a custom path if specified).  
 
 ---
