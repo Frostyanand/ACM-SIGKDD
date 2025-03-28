@@ -1,53 +1,79 @@
+# Anurag Anand
+# RA2411003010760 SRM K1 , aa9004@srmist.edu.in
+# TASK 1: TITANIC DATASET HANDLING
+
+
+## to run replace the path for csv file with your system path and the output path to get the final edited csv file , pre-ran and availble on my github repo already
+
+# LOADING DATA
 import pandas as pd
 
-# Load the dataset
-file_path = r"D:\ACM SIGKDD R&D RECRUITMENT TASK\Task 1 Titanic Dataset Handling\tested.csv"  # replace with the correct csv file path here
+# Load dataset from CSV
+# putt your system path here for csv file, also available on my github repo
+file_path = r"D:\ACM SIGKDD R&D RECRUITMENT TASK\Task 1 Titanic Dataset Handling\tested.csv" 
 df = pd.read_csv(file_path)
-print(" Dataset Loaded")
-print(f"Shape: {df.shape}")
+print("\n Dataset Loaded")
+print(f"Initial Shape: {df.shape}")
 print(df.head())
 
-# Inspect Data
-print("\n Dataset Information:")
+# DATA INSPECTION
+
+print("\n\n DATASET INSPECTION:")
+print("\nDataset Information:")
 print(df.info())
-print("\n Summary Statistics:")
-print(df.describe())
-print("\n Missing Values Before Handling:")
+print("\nSummary Statistics:")
+print(df.describe(include='all'))
+print("\nMissing Values Before Handling:")
 print(df.isnull().sum())
 
-# Select Relevant Columns (Cabin removed due to excessive missing values)
+
+#  DATA SELECTION
+
+# Select relevant columns (drop 'Cabin' due to missing values)
 selected_columns = ['Survived', 'Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
 df = df[selected_columns]
-print("\n Selected Columns:")
+print("\n\n Selected Columns:")
+print(f"New Shape: {df.shape}")
 print(df.head())
 
-# Handle Missing Values
-df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])  # Fill missing Embarked values with mode
-df['Age'] = df['Age'].fillna(df['Age'].median())  # Fill missing Age with median (robust to outliers)
-df['Fare'] = df['Fare'].fillna(df['Fare'].median())  # Fill missing Fare with median
+#  FILTERING 
 
-# Convert Categorical Variables
-df['Sex'] = df['Sex'].map({'male': 0, 'female': 1})
-df['Embarked'] = df['Embarked'].map({'S': 0, 'C': 1, 'Q': 2})
+#  Filter rows to retain specific data (e.g., passengers in Pclass 1 or 2)
+print("\n\n FILTERING DATA...")
+filter_condition = df['Pclass'].isin([1, 2])  # Example: Keep First and Second Class passengers
+df = df[filter_condition]
+print(f"Shape After Filtering: {df.shape}")
+print("\nFiltered Data Samples:")
+print(df.head())
 
-# Create new features
-df['FamilySize'] = df['SibSp'] + df['Parch'] + 1
-df['IsAlone'] = (df['FamilySize'] == 1).astype(int)
-df.drop(columns=['SibSp', 'Parch'], inplace=True)
-print("\n Feature Engineering Completed")
+#  HANDLING MISSING DATA
 
-# Verify missing values after fixing
-print("\n Missing Values After Fix:")
+# Fill missing values for Age, Fare, and Embarked
+print("\n\n HANDLING MISSING VALUES...")
+df['Embarked'] = df['Embarked'].fillna(df['Embarked'].mode()[0])  # Mode for Embarked
+df['Age'] = df['Age'].fillna(df['Age'].median())  # Median for Age
+df['Fare'] = df['Fare'].fillna(df['Fare'].median())  # Median for Fare
+print("\nMissing Values After Handling:")
 print(df.isnull().sum())
 
-# Final Assertions (Critical for validation)
-assert df['Age'].isnull().sum() == 0, "❌ Age has missing values!"
-assert df['Embarked'].isnull().sum() == 0, "❌ Embarked has missing values!"
-assert df['Fare'].isnull().sum() == 0, "❌ Fare has missing values!"
+# VALIDATION & EXPORT
 
-# Save Cleaned Data
+# Assert no missing values remain
+assert df['Age'].isnull().sum() == 0, " Age has missing values!"
+assert df['Embarked'].isnull().sum() == 0, " Embarked has missing values!"
+assert df['Fare'].isnull().sum() == 0, " Fare has missing values!"
+
+# Save cleaned dataset
+
+#replace your final path for csv file output here
 df.to_csv("final_titanic_dataset.csv", index=False)
-print("\n Final cleaned dataset saved as 'final_titanic_dataset.csv'")
+print("\n\n FINAL DATASET SAVED AS 'final_titanic_dataset.csv'")
+
+# Final summary
+print("\n\n FINAL DATASET VERIFICATION:")
+print(f"Shape: {df.shape}")
+print(df.describe(include='all'))
+
 
 # Final Summary
 print("\n🔍 Final Dataset Verification:")
