@@ -64,8 +64,13 @@ assert df['Embarked'].isnull().sum() == 0, " Embarked has missing values!"
 assert df['Fare'].isnull().sum() == 0, " Fare has missing values!"
 
 # Save cleaned dataset
+#or use absolute path using the 3 below lines  if current directory causes issues in the system being used to run
+#save_path = r"C:\Users\anura\OneDrive\Desktop\final_titanic_dataset.csv" 
+#df.to_csv(save_path, index=False)
+#print(f"\n\n FINAL DATASET SAVED TO: {save_path}")
 
-#replace your final path for csv file output here
+
+#comment these two lines below if using absolute path 
 df.to_csv("final_titanic_dataset.csv", index=False)
 print("\n\n FINAL DATASET SAVED AS 'final_titanic_dataset.csv'")
 
@@ -74,8 +79,3 @@ print("\n\n FINAL DATASET VERIFICATION:")
 print(f"Shape: {df.shape}")
 print(df.describe(include='all'))
 
-
-# Final Summary
-print("\n🔍 Final Dataset Verification:")
-print(f"Shape: {df.shape}")
-print(df.describe(include='all'))
