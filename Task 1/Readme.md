@@ -36,7 +36,7 @@ Data type mix: Contains numerical and categorical features
 |----------------|-----------------------------------------|-----------|
 | `name`         | Car model name                          | object    |
 | `year`         | Year of manufacture                     | int       |
-| `selling_price`| ✅ **Target**: Price of car (in INR)     | int       |
+| `selling_price`| **Target**: Price of car (in INR)     | int       |
 | `km_driven`    | Kilometers driven                       | int       |
 | `fuel`         | Type of fuel (e.g., Petrol, Diesel)     | object    |
 | `seller_type`  | Individual / Dealer / Trustmark         | object    |
@@ -134,7 +134,7 @@ Test Drive Car       → 4 (or can handle separately)
 - Created a new column:  
 	Newer cars usually cost more. Calculating car_age = current_year - year is more meaningful.
 
-### 3.  Drop Columns:
+###   Drop Columns:
 Column	Reason
 year	After we convert to car_age, year is no longer needed
 name	Too many unique values (1491), hard to encode meaningfully .
@@ -143,7 +143,7 @@ name	Too many unique values (1491), hard to encode meaningfully .
 X = All columns except selling_price
 y = The selling_price column
 
-## 🧼 Clean/Transform km_driven
+##  Clean/Transform km_driven
 No nulls, but range is wide (1 to 8+ lakh km)
 Apply log transformation to reduce outlier skew:
 df['km_driven'] = np.log1p(df['km_driven'])
