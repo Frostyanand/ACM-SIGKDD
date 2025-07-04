@@ -4,6 +4,7 @@
 This project presents a complete deep dive into the most commonly used **loss functions** in Machine Learning and Deep Learning, with visualizations, mathematical intuition, and code implementations.
 
 > Loss functions are the heart of model training — they guide how the model learns. This notebook documents and demonstrates the purpose, behavior, and gradients of key loss functions, along with their practical usage.
+![image](https://github.com/user-attachments/assets/9998da36-629c-4dfc-ad1d-9d095aa85a0c)
 
 ---
 
@@ -19,8 +20,9 @@ This project presents a complete deep dive into the most commonly used **loss fu
 - **Use case**: When you want a robust metric not sensitive to outliers.
 - **Graph**: V-shaped loss curve
 
- _Insert MAE graph here_  
-`![MAE Graph](images/mae_plot.png)`
+![image](https://github.com/user-attachments/assets/f6a83e4e-ab57-4b4e-bfba-3203c1c804d3)
+
+![image](https://github.com/user-attachments/assets/f0743075-0bfa-4a51-906c-02fd5633b655)
 
 ---
 
@@ -36,9 +38,10 @@ This project presents a complete deep dive into the most commonly used **loss fu
   \]
 - **Use case**: Standard loss for regression tasks.
 -  **Graph**: Smooth upward curve (parabola)
+![image](https://github.com/user-attachments/assets/dab419d8-1e1e-490c-bd90-f7a335dbd69d)
 
- _Insert MSE graph here_  
-`![MSE Graph](images/mse_plot.png)`
+![image](https://github.com/user-attachments/assets/32776051-3c93-4da7-b15e-51cabe3920b7)
+
 
 ---
 
@@ -54,9 +57,11 @@ This project presents a complete deep dive into the most commonly used **loss fu
   - Prediction near 0 or 1 → high confidence  
 - **Use case**: Binary classification with sigmoid output
 - **Graph**: Steep log curve
+![image](https://github.com/user-attachments/assets/b78e8aec-0da1-4972-ae7f-5ddcadc90b37)
 
- _Insert BCE graph here_  
-`![BCE Graph](images/bce_plot.png)`
+![image](https://github.com/user-attachments/assets/4a7df362-dea5-4478-a310-2b1d736b2464)
+
+![image](https://github.com/user-attachments/assets/09579082-7788-448e-926a-643e338ba225)
 
 ---
 
@@ -76,18 +81,19 @@ This project presents a complete deep dive into the most commonly used **loss fu
   - Loss is low when correct class gets high probability  
   - Loss increases sharply when correct class gets low probability
 
- _Insert CCE prediction graph here_  
-`![CCE Good vs Bad](images/cce_good_bad.png)`
+![image](https://github.com/user-attachments/assets/5fe9e8d0-2eb5-42be-9dc8-116d0bdc8bf1)
+
 
 ---
 
-### 5. ✳ Sparse Categorical Cross Entropy (Sparse CCE)
+### 5. Sparse Categorical Cross Entropy (Sparse CCE)
 - Same logic as CCE, but:
   - True labels are **integers**, not one-hot vectors
 - Useful for memory-efficient training in large-class tasks
 
  _Insert Sparse CCE example graph if available_  
 `![Sparse CCE](images/sparse_cce.png)`
+![image](https://github.com/user-attachments/assets/0e71212b-46f6-4c7e-95e9-de8d45725347)
 
 ---
 
@@ -100,8 +106,7 @@ This project presents a complete deep dive into the most commonly used **loss fu
 - Ensures outputs sum to 1
 - Makes loss function gradients interpretable
 
- _Insert Softmax plot here_  
-`![Softmax](images/softmax_distribution.png)`
+
 
 ---
 
@@ -128,6 +133,4 @@ This project presents a complete deep dive into the most commonly used **loss fu
 - Jupyter/Colab Notebook
 
 ---
-
-## 📁 File Structure
 
