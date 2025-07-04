@@ -1,4 +1,4 @@
-#  Machine Learning Loss Functions – Deep Dive
+#  Machine Learning Loss Functions
 
 ##  Objective
 This project presents a complete deep dive into the most commonly used **loss functions** in Machine Learning and Deep Learning, with visualizations, mathematical intuition, and code implementations.
